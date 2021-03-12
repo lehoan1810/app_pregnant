@@ -6,10 +6,12 @@
 
 ### Danh sách yêu cầu đề tài:
 
-- :rocket: 1. Cài đặt và quản lý thời gian sử dụng hàng ngày
-- :rocket: 2. Chặn website có nội dung không phù hợp
-- :rocket: 3. Chặn và giới hạn các ứng dụng trên CHplay hoặc appStore
-- :rocket: 4. Chặn gỡ ứng dụng giám sát
+- :rocket: 1. Khai thác họ tên, năm sinh và số tuổi thai
+- :rocket: 2. Đề xuất các chế dộ dinh dưỡng, thể dục
+- :rocket: 3. Thời gian khám thai định kì
+- :rocket: 4. Chức năng theo dõi thai kì và sự phát triển của bé
+- :rocket: 4. Hiển thị những vắc xin cần tiêm cho trẻ trong thời kì mang thai
+- :rocket: 4. Đề xuất được các bệnh viện phụ sản uy tín
 
 ### How I can run it?
 
