@@ -4,7 +4,7 @@
 
 ### Nhóm thực hiện: Nhóm 27
 
-### Tên các thành viên trong nhóm:
+### Tên các thành viên trong nhóm: :computer:.
 
 ```text
 1. Lê Văn Hoàn     18110111 (Leader)
