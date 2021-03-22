@@ -4,6 +4,13 @@
 
 ### Nhóm thực hiện: Nhóm 27
 
+### Tên các thành viên trong nhóm:
+```text
+  Lê Văn Hoàn     18110111 (Leader)
+  Ngô Anh Quốc    18110186
+  Trần Quốc Việt  18110238
+```
+
 ### Danh sách yêu cầu đề tài:
 
 - :rocket: 1. Khai thác họ tên, năm sinh và số tuổi thai
