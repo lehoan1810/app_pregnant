@@ -7,11 +7,11 @@
 ### Tên các thành viên trong nhóm:
 
 ```text
-:computer:. Lê Văn Hoàn     18110111 (Leader)
+1. Lê Văn Hoàn     18110111 (Leader)
 
-:computer:. Ngô Anh Quốc    18110186
+2. Ngô Anh Quốc    18110186
   
-:computer:. Trần Quốc Việt  18110238
+3. Trần Quốc Việt  18110238
 ```
 
 ### Danh sách yêu cầu đề tài:
