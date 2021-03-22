@@ -1,6 +1,6 @@
 ## Đề tài môn Công Nghệ Phần Mềm
 
-### Tên đề tài: APP HỖ TRỢ PHỤ NỮ MANG THAI
+### Tên đề tài: APP HỖ TRỢ PHỤ NỮ MANG THAI :family: :baby:
 
 ### Nhóm thực hiện: Nhóm 27
 
