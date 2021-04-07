@@ -7,11 +7,17 @@
 ### Tên các thành viên trong nhóm: :computer: :computer: :computer:
 
 ```text
-1. Lê Văn Hoàn     18110111 (Leader)
 
-2. Ngô Anh Quốc    18110186
+Project Manager:
+   Nguyễn Hoàng Huy    18110293 (PM)
+
+Developer:
+1. Lê Văn Hoàn         18110111
+
+2. Ngô Anh Quốc        18110186
   
-3. Trần Quốc Việt  18110238
+3. Trần Quốc Việt      18110238
+
 ```
 
 ### Danh sách yêu cầu đề tài:
