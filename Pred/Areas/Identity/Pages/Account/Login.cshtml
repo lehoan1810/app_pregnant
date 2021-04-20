@@ -1,0 +1,93 @@
+﻿@page
+@model LoginModel
+
+@{
+    ViewData["Title"] = "Đăng nhập";
+}
+
+<div style="
+        width: 100%;
+        height: 100vh;
+        background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(/asset/Health-.jpg)
+">
+    <div class="">
+        <div class="row justify-content-md-center py-3 text-white text-center">
+            <h1 class="text-center">@ViewData["Title"]</h1>
+        </div>
+        <div class="row justify-content-md-center py-3">
+            <div class="col-lg-3 col-md-6 col-sm-8 px-4 py-4 bg-white" style="border-radius:10px">
+                <section>
+                    <form id="account" method="post">
+                        <div asp-validation-summary="All" class="text-danger"></div>
+                        <div class="form-group">
+                            <label asp-for="Input.Email"></label>
+                            <input asp-for="Input.Email" class="form-control" style="border-radius:500px" />
+                            <span asp-validation-for="Input.Email" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Input.Password"></label>
+                            <input asp-for="Input.Password" class="form-control" style="border-radius:500px" />
+                            <span asp-validation-for="Input.Password" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <div class="checkbox">
+                                <label asp-for="Input.RememberMe">
+                                    <input asp-for="Input.RememberMe" />
+                                    @Html.DisplayNameFor(m => m.Input.RememberMe)
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary w-100 bg-danger border-0" style="border-radius:500px">Đăng nhập</button>
+                        </div>
+                        <div class="form-group text-center">
+                            <p>
+                                <a id="forgot-password" class="text-danger" asp-page="./ForgotPassword">Quên mật khẩu?</a>
+                            </p>
+                            <p class="mt-5">
+                                Chưa có tài khoản? <a class="text-danger" asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl"> Đăng ký</a>
+                            </p>
+                        </div>
+                    </form>
+                </section>
+            </div>
+            @*<div class="col-md-6 col-md-offset-2">
+                <section>
+                    <h4>Use another service to log in.</h4>
+                    <hr />
+                    @{
+                        if ((Model.ExternalLogins?.Count ?? 0) == 0)
+                        {
+                            <div>
+                                <p>
+                                    There are no external authentication services configured. See <a href="https://go.microsoft.com/fwlink/?LinkID=532715">this article</a>
+                                    for details on setting up this ASP.NET application to support logging in via external services.
+                                </p>
+                            </div>
+                        }
+                        else
+                        {
+                            <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form-horizontal">
+                                <div>
+                                    <p>
+                                        @foreach (var provider in Model.ExternalLogins)
+                                        {
+                                            <button type="submit" class="btn btn-primary" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">@provider.DisplayName</button>
+                                        }
+                                    </p>
+                                </div>
+                            </form>
+                        }
+                    }
+                </section>
+            </div>*@
+        </div>
+    </div>
+    
+
+</div>
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
