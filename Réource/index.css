@@ -1,0 +1,26 @@
+.ava-img{
+    border: 2px solid black;
+    text-align: center;
+    height: 25vh;
+}
+.ava-img img{
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+    align-items: center;
+}
+.feature{
+    padding-top: 20px;
+}
+
+.feature a{
+    display:block;
+    padding: 10px;
+    text-decoration: none;
+    color: black;
+    border: 2px solid gray;
+    padding-left: 20px;
+}
+#left{
+    border-right: 1px solid;
+}
