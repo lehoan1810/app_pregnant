@@ -1,0 +1,30 @@
+﻿@page
+@using Microsoft.AspNetCore.Identity
+@inject UserManager<IdentityUser> userManager;
+@model IEnumerable<Microsoft.AspNetCore.Identity.IdentityUser>
+@{
+    Layout = "/Areas/Admin/Views/Manage/_Layout.cshtml";
+}
+
+<button class="btn btn-danger float-lg-right m-2">Thêm bác sĩ</button>
+<h5>Quản lý bác sĩ</h5>
+
+<table class="table table-striped">
+    <thead class="thead-dark">
+        <tr>
+            <th>Họ tên</th>
+            <th>Email</th>
+            <th>SĐT</th>
+            <th></th>
+        </tr>
+    </thead>
+    @foreach (var user in userManager.GetUsersInRoleAsync("Doctor").Result)
+    {
+        <tr>
+            <td>Chưa làm</td>
+            <td>@user.Email</td>
+            <td>@user.PhoneNumber</td>
+            <td><button class="btn border-dark">Xóa</button></td>
+        </tr>
+    }
+</table>
