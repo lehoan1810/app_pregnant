@@ -4,42 +4,57 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        function testValue() {
+          document.getElementById("fullName").value = "Lê Ngọc Phương Anh";
+          document.getElementById("genderInfo").value='XX';
+          document.getElementById("birthday").value = "2000-03-17";
+          document.getElementById("workInfo").value = "Bác sĩ";
+          document.getElementById("addressInfo").value = "46 Gạo";
+          document.getElementById("fullName").value = "Lê Ngọc Phương Anh";
+        }
+    </script>
 </head>
 <body>
-    <div class="row">
-        <div class="col-5">
-            Avatar
-        </div>
-        <div class="col-7">
-            
-        </div>         
-    </div>
+    
     <div class="container">
         <div class="row">
-            <div class="info">
-                <input class="form-control" placeholder="Họ và tên" id="fullName">
-                <input class="form-control" placeholder="Gender" id="genderInfo">
-                <div class="row birthdayInfo">
-                    <div class="col">
-                        <input class="form-control d-inline" placeholder="day"> 
-                    </div>
-                    /
-                    <div class="col">
-                         <input class="form-control d-inline" placeholder="month"> 
-                    </div>
-                    /
-                    <div class="col">
-                         <input class="form-control d-inline" placeholder="year">
-                    </div>
-                      
-                       
+            <div class="col">
+                <div class="avatar">
+                    
                 </div>
-                <input class="form-control" placeholder="Số điện thoại" id="numberInfo">
-                <input class="form-control" placeholder="Địa chỉ" id="addressInfo">
             </div>
-            <div class="container">
+            <div class="col">
+                <div class="editInfoButton">
+                    <button class="button">Thay đổi Avatar</button>
+                    <button class="button">Chỉnh sửa thông tin cá nhân</button>
+                    <button class="button" onclick="testValue()">Test value</button>
+                </div>
+                
+            </div>         
+        </div>
+    </div>
+    <div class="container">
+        <div class="info">
+            <input class="form-control" placeholder="Họ và tên" id="fullName" required>
+            <div class="row">
+                <div class="col-sm-8">
+                    <input type="date" id="birthday" name="birthday" class="form-control">
+                </div>
+                <div class="col-sm-4">
+                    <select id= "genderInfo">
+                        <option value="" selected disabled>Giới tính</option>
+                        <option value="XX">Nữ</option>
+                        <option value="XY">Nam</option>
+                    </select>
+                </div>
+                
                 
             </div>
+            
+            <input class="form-control" placeholder="Số điện thoại" id="numberInfo" required>
+            <input class="form-control" placeholder="Công việc" id="workInfo" required>
+            <input class="form-control" placeholder="Địa chỉ" id="addressInfo" required>
         </div>
     </div>
    
