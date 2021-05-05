@@ -843,9 +843,6 @@ C:\Users\Asus\source\repos\app_pregnant\Pred\bin\Debug\netcoreapp3.1\runtimes\wi
 C:\Users\Asus\source\repos\app_pregnant\Pred\obj\Debug\netcoreapp3.1\Pred.csprojAssemblyReference.cache
 C:\Users\Asus\source\repos\app_pregnant\Pred\obj\Debug\netcoreapp3.1\Pred.AssemblyInfoInputs.cache
 C:\Users\Asus\source\repos\app_pregnant\Pred\obj\Debug\netcoreapp3.1\Pred.AssemblyInfo.cs
-C:\Users\Asus\source\repos\app_pregnant\Pred\obj\Debug\netcoreapp3.1\Pred.csproj.CoreCompileInputs.cache
-C:\Users\Asus\source\repos\app_pregnant\Pred\obj\Debug\netcoreapp3.1\Pred.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\Asus\source\repos\app_pregnant\Pred\obj\Debug\netcoreapp3.1\Pred.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\Asus\source\repos\app_pregnant\Pred\obj\Debug\netcoreapp3.1\Pred.RazorAssemblyInfo.cache
 C:\Users\Asus\source\repos\app_pregnant\Pred\obj\Debug\netcoreapp3.1\Pred.RazorAssemblyInfo.cs
 C:\Users\Asus\source\repos\app_pregnant\Pred\obj\Debug\netcoreapp3.1\Pred.TagHelpers.input.cache
@@ -886,3 +883,6 @@ C:\Users\Asus\source\repos\app_pregnant\Pred\obj\Debug\netcoreapp3.1\Razor\Areas
 C:\Users\Asus\source\repos\app_pregnant\Pred\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Manage\_ViewImports.cshtml.g.cs
 C:\Users\Asus\source\repos\app_pregnant\Pred\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Manage\Doctors.cshtml.g.cs
 C:\Users\Asus\source\repos\app_pregnant\Pred\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Manage\Hospitals.cshtml.g.cs
+C:\Users\Asus\source\repos\app_pregnant\Pred\obj\Debug\netcoreapp3.1\Pred.csproj.CoreCompileInputs.cache
+C:\Users\Asus\source\repos\app_pregnant\Pred\obj\Debug\netcoreapp3.1\Pred.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Asus\source\repos\app_pregnant\Pred\obj\Debug\netcoreapp3.1\Pred.MvcApplicationPartsAssemblyInfo.cache

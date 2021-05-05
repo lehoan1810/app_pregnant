@@ -2,8 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+//using System.Web.Mvc;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 using Microsoft.AspNetCore.Mvc;
 using Pred.Data;
 using Pred.Models;
@@ -14,7 +17,7 @@ namespace Pred.Areas.Admin.Controllers
     [Authorize(Roles =("Admin"))]
     public class ManageController : Controller
     {
-        private readonly RoleManager<IdentityRole> roleManager;
+        //private readonly RoleManager<IdentityRole> roleManager;
         private readonly UserManager<IdentityUser> userManager;
 
         private readonly ApplicationDbContext _context;
@@ -75,6 +78,27 @@ namespace Pred.Areas.Admin.Controllers
             _context.Hospitals.Add(h);
             _context.SaveChanges();
             return View("Hospital");
+        }
+
+        [HttpGet]
+        public JsonResult getHospitals()
+        {
+            var hs = Json(_context.Hospitals, new JsonSerializerOptions
+            {
+                WriteIndented = true,
+            }); ;
+            return hs;
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> deleteHospital(int Id)
+        {
+            var hospital = _context.Hospitals.Find(Id);
+            if (hospital == null)
+                return View();
+            _context.Hospitals.Remove(hospital);
+            _context.SaveChanges();
+            return RedirectToAction("Hospitals");
         }
     }
 }

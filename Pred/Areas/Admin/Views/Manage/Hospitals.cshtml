@@ -41,13 +41,14 @@
         </div>
     </div>
 </div>
-
-<table class="table table-striped">
+ 
+<table id="hospital-table" class="table table-striped">
     <thead class="thead-dark">
         <tr>
             <th>Tên bệnh viện</th>
             <th>Vị trí</th>
             <th>Chi tiết</th>
+            <th></th>
         </tr>
     </thead>
     @foreach(var hp in Model)
@@ -56,6 +57,7 @@
             <td>@hp.Name</td>
             <td></td>
             <td></td>
+            <td><a class="btn" asp-action="deleteHospital" asp-route-Id="@hp.ID.ToString()">Xóa</a></td>
         </tr>            
     }
 </table>
@@ -64,6 +66,7 @@
 <script>
     var map;
     var Point1 = null;
+    var hospitals;
     var lon;
     var lat;
 
@@ -72,6 +75,7 @@
             credentials: 'Aou71i_elK0nhhgABTBt8g0hGOtZc7UNNUavfBPLa-hBK_3HktQsZUqSOOJNZ0D3'
         });
 
+        getHospital();
 
         Microsoft.Maps.Events.addHandler(map, 'click', function (e) {
             if (e.targetType == "map") {
@@ -79,7 +83,7 @@
                 var point = new Microsoft.Maps.Point(e.getX(), e.getY());
                 var loc = e.target.tryPixelToLocation(point);
                 var location = new Microsoft.Maps.Location(loc.latitude, loc.longitude);
-                Point1 = new Microsoft.Maps.Pushpin(location, { color: 'red', draggable: true });
+                Point1 = new Microsoft.Maps.Pushpin(location, { color: 'blue' });
                 map.entities.push(Point1);
                 lon = loc.longitude;
                 lat = loc.latitude;
@@ -104,10 +108,31 @@
                 name: document.getElementById('Name').value,
                 longitude: lon,
                 latitude: lat
+            },
+            error: function () {
+                window.location.reload();
             }
-        }).done(function () {
-            location.reload();
-        });
+        })
+    }
+
+    function getHospital() {
+        $.ajax({
+            url: '@Url.Action("getHospitals","Manage")',
+            data: {},
+            success:
+                function (response) {
+                    hospitals = response;
+                    hospitals.forEach(h => {
+                        var loc = new Microsoft.Maps.Location(h.la, h.lo)
+                        var pin = new Microsoft.Maps.Pushpin(loc, { color: 'red', title: h.Name});
+                        map.entities.push(pin)
+                    })
+                },
+            error:
+                function (response) {
+                    alert("Error: " + response);
+                }
+        })
     }
 
 </script>
