@@ -6,7 +6,46 @@
     Layout = "/Areas/Admin/Views/Manage/_Layout.cshtml";
 }
 
-<button class="btn btn-danger float-lg-right m-2">Thêm bác sĩ</button>
+
+<button type="button" class="btn btn-danger float-lg-right m-2" data-toggle="modal" data-target="#modal">
+    Thêm bác sĩ
+</button>
+
+<div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalLabel">Thêm bác sĩ</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                    <div class="overflow-auto">
+                        <ul>
+                            @foreach (var user in userManager.Users)
+                            {
+                                if (!userManager.IsInRoleAsync(user, "Doctor").Result && !userManager.IsInRoleAsync(user, "Admin").Result)
+                                {
+                                    <li class="m-1 d-flex justify-content-around align-items-center">
+                                        @user.Email
+                                        <a asp-action="AddDoctor"
+                                           asp-route-userId="@user.Id.ToString()">
+                                            <i class="fa fa-plus" aria-hidden="true"></i>
+                                        </a>
+                                    </li>
+                                }
+                            }
+                        </ul>
+                    </div>     
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <h5>Quản lý bác sĩ</h5>
 
 <table class="table table-striped">
@@ -20,11 +59,26 @@
     </thead>
     @foreach (var user in userManager.GetUsersInRoleAsync("Doctor").Result)
     {
-        <tr>
+        <tr id="@user.Id">
             <td>Chưa làm</td>
             <td>@user.Email</td>
             <td>@user.PhoneNumber</td>
-            <td><button class="btn border-dark">Xóa</button></td>
+            <td>
+                <a 
+                    asp-action="RemoveDoctor"
+                    asp-route-userId="@user.Id.ToString()"
+                    class="btn border-dark">
+                    Xóa 
+                    <i class="fa fa-trash" aria-hidden="true"></i>
+                </a>
+            </td>
         </tr>
     }
 </table>
+
+
+
+<script>
+
+
+</script>

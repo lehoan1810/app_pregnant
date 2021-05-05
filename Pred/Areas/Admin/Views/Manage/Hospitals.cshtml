@@ -1,0 +1,113 @@
+﻿@using Pred.Models;
+@model IEnumerable<Hospital>
+@{
+    Layout = "/Areas/Admin/Views/Manage/_Layout.cshtml";
+}
+
+<h5>
+    Hospitals
+</h5>
+<button type="button" class="btn btn-danger float-lg-right m-2" data-toggle="modal" data-target="#modal">
+    Thêm bệnh viện
+</button>
+
+<div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalLabel">Thêm bác sĩ</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="overflow-auto">
+                    <label for="Name">Tên bệnh viện</label>
+                    <input id="Name" name="Name" type="text" onkeypress="getName()"/>
+                    <label>Chọn vị trí</label>
+                    <div id="container" onload="loadMapScenario();">
+                        <div id="myMap" style='width: 100%; height: 400px; border: 1px solid black;'>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" onclick="clearForm()" data-dismiss="modal">Đóng</button>
+                <button 
+                   onclick="addHospital()"
+                   type="button" class="btn btn-danger">Thêm</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<table class="table table-striped">
+    <thead class="thead-dark">
+        <tr>
+            <th>Tên bệnh viện</th>
+            <th>Vị trí</th>
+            <th>Chi tiết</th>
+        </tr>
+    </thead>
+    @foreach(var hp in Model)
+    {
+        <tr>
+            <td>@hp.Name</td>
+            <td></td>
+            <td></td>
+        </tr>            
+    }
+</table>
+
+<script type='text/javascript' src='https://www.bing.com/api/maps/mapcontrol?callback=loadMapScenario' async defer></script>
+<script>
+    var map;
+    var Point1 = null;
+    var lon;
+    var lat;
+
+    function loadMapScenario() {
+        map = new Microsoft.Maps.Map(document.getElementById('myMap'), {
+            credentials: 'Aou71i_elK0nhhgABTBt8g0hGOtZc7UNNUavfBPLa-hBK_3HktQsZUqSOOJNZ0D3'
+        });
+
+
+        Microsoft.Maps.Events.addHandler(map, 'click', function (e) {
+            if (e.targetType == "map") {
+                map.entities.clear();
+                var point = new Microsoft.Maps.Point(e.getX(), e.getY());
+                var loc = e.target.tryPixelToLocation(point);
+                var location = new Microsoft.Maps.Location(loc.latitude, loc.longitude);
+                Point1 = new Microsoft.Maps.Pushpin(location, { color: 'red', draggable: true });
+                map.entities.push(Point1);
+                lon = loc.longitude;
+                lat = loc.latitude;
+            }
+        });
+    }
+
+
+    function getName() {
+        var name = document.getElementById('Name').value;
+    }
+
+
+    function clearForm() {
+        document.getElementById('Name').value = '';
+    }
+
+    function addHospital() {
+        $.ajax({
+            url: '@Url.Action("AddHospital","Manage")',
+            data: {
+                name: document.getElementById('Name').value,
+                longitude: lon,
+                latitude: lat
+            }
+        }).done(function () {
+            location.reload();
+        });
+    }
+
+</script>

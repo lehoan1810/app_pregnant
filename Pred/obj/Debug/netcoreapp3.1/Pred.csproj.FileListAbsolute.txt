@@ -885,3 +885,4 @@ C:\Users\Asus\source\repos\app_pregnant\Pred\obj\Debug\netcoreapp3.1\Razor\Areas
 C:\Users\Asus\source\repos\app_pregnant\Pred\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\_ViewStart.cshtml.g.cs
 C:\Users\Asus\source\repos\app_pregnant\Pred\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Manage\_ViewImports.cshtml.g.cs
 C:\Users\Asus\source\repos\app_pregnant\Pred\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Manage\Doctors.cshtml.g.cs
+C:\Users\Asus\source\repos\app_pregnant\Pred\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Manage\Hospitals.cshtml.g.cs

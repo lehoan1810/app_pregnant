@@ -1,6 +1,7 @@
 ﻿@page
 @using Microsoft.AspNetCore.Identity
 @inject UserManager<IdentityUser> userManager;
+@inject RoleManager<IdentityRole> roleManager;
 @model IEnumerable<Microsoft.AspNetCore.Identity.IdentityUser>
 @{
     Layout = "/Areas/Admin/Views/Manage/_Layout.cshtml";
@@ -15,6 +16,7 @@
             <th>Họ tên</th>
             <th>Email</th>
             <th>SĐT</th>
+            <th>Role</th>
             <th></th>
         </tr>
     </thead>
@@ -24,9 +26,10 @@
             <td>Chưa làm</td>
             <td>@user.Email</td>
             <td>@user.PhoneNumber</td>
+            <td></td>
             @if (userManager.IsInRoleAsync(user, "Admin").Result)
-                    continue;
-            <td><button class="btn border-dark">Xóa</button></td>
+                continue;
+            <td><button class="btn border-dark">Chặn</button></td>
         </tr>
     }
 </table>
