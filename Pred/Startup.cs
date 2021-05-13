@@ -30,11 +30,19 @@ namespace Pred
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
+
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+                .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+
             services.AddControllersWithViews();
             services.AddRazorPages();
             services.AddRazorPages().AddRazorRuntimeCompilation();
+
+
+            services.AddControllers()
+                    .AddJsonOptions(options =>
+                       options.JsonSerializerOptions.PropertyNamingPolicy = null);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -62,11 +70,14 @@ namespace Pred
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
+                    name: "Areas",
+                    pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
+
+                endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
             });
-
             app.UseStaticFiles();
             app.UseBrowserLink();
         }

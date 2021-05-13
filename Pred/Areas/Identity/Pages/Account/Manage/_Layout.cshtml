@@ -1,0 +1,27 @@
+﻿@{
+    if (ViewData.TryGetValue("ParentLayout", out var parentLayout))
+    {
+        Layout = (string)parentLayout;
+    }
+    else
+    {
+        Layout = "/Areas/Identity/Pages/_Layout.cshtml";
+    }
+}
+
+<h2 class="text-center m-4">Quản lý tài khoản</h2>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-3 pr-4 account-manage">
+            <partial name="_ManageNav" />
+        </div>
+        <div class="col-md-9 p-4">
+            @RenderBody()
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @RenderSection("Scripts", required: false)
+}

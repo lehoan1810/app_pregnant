@@ -1,0 +1,35 @@
+﻿@page
+@using Microsoft.AspNetCore.Identity
+@inject UserManager<IdentityUser> userManager;
+@inject RoleManager<IdentityRole> roleManager;
+@model IEnumerable<Microsoft.AspNetCore.Identity.IdentityUser>
+@{
+    Layout = "/Areas/Admin/Views/Manage/_Layout.cshtml";
+}
+
+<button class="btn btn-danger float-lg-right m-2">?</button>
+<h5>Quản lý người dùng</h5>
+
+<table class="table table-striped">
+    <thead class="thead-dark">
+        <tr>
+            <th>Họ tên</th>
+            <th>Email</th>
+            <th>SĐT</th>
+            <th>Role</th>
+            <th></th>
+        </tr>
+    </thead>
+    @foreach (var user in userManager.Users)
+    {
+        <tr>
+            <td>Chưa làm</td>
+            <td>@user.Email</td>
+            <td>@user.PhoneNumber</td>
+            <td></td>
+            @if (userManager.IsInRoleAsync(user, "Admin").Result)
+                continue;
+            <td><button class="btn border-dark">Chặn</button></td>
+        </tr>
+    }
+</table>
