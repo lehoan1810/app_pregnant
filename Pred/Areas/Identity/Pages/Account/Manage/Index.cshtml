@@ -7,24 +7,132 @@
 
 <h4>@ViewData["Title"]</h4>
 <partial name="_StatusMessage" model="Model.StatusMessage" />
-<div class="row">
-    <div class="col-md-6">
-        <form id="profile-form" method="post">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Username"></label>
-                <input asp-for="Username" class="form-control" disabled />
-            </div>
-            <div class="form-group">
-                <label asp-for="Input.PhoneNumber"></label>
-                <input asp-for="Input.PhoneNumber" class="form-control" />
-                <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
-            </div>
-            <button id="update-profile-button" type="submit" class="btn btn-primary">Save</button>
-        </form>
-    </div>
-</div>
+@*<div class="row">
+        <div class="col-md-6">
+            <form id="profile-form" method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Username"></label>
+                    <input asp-for="Username" class="form-control" disabled />
+                </div>
+                <div class="form-group">
+                    <label asp-for="Input.PhoneNumber"></label>
+                    <input asp-for="Input.PhoneNumber" class="form-control" />
+                    <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
+                </div>
+                <button id="update-profile-button" type="submit" class="btn btn-primary">Save</button>
+            </form>
+        </div>
+    </div>*@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+<script>
+    function pickImage(e) {
+        e.preventDefault();
+        document.getElementById('profile-picture-pick').click();
+    }
+</script>
+<body>
+    <form id="profile-form" method="post" enctype="multipart/form-data">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="avatar">
+                        @if (Model.Input.ProfilePic != null)
+                        {
+                            <img id="profilePicture" style="width:200px;height:200px; object-fit:cover"
+                                 src="data:image/*;base64,@(Convert.ToBase64String(Model.Input.ProfilePic))">
+                        }
+                        else
+                        {
+                            <img id="profilePicture" style="width:200px;height:200px; object-fit:cover" src="">
+                        }
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="editInfoButton">
+                        <input id="profile-picture-pick" type="file" asp-for="Input.ProfilePic" name="myImage"
+                               accept="image/png, image/gif, image/jpeg, image/bmp"
+                               onchange="document.getElementById('profilePicture').src = window.URL.createObjectURL(this.files[0])" hidden />
+                        <button class="button" onclick="pickImage(event)">Thay đổi Avatar</button>
+                        <button class="button" id="update-profile-button" type="submit">Chỉnh sửa thông tin cá nhân</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="info">
+                <input class="form-control" asp-for="Input.Name" placeholder="Họ và tên" id="fullName" required>
+                <div class="row">
+                    <div class="col-sm-8">
+                        <input type="date" asp-for="Input.BirthDate" id="birthday" name="birthday" class="form-control"
+                               min="1900-01-01" max="2020-12-31"
+                               onchange="console.log(this.value)">
+                    </div>
+                    <div class="col-sm-4">
+                        <select asp-for="Input.Sex" id="genderInfo">
+                            <option value="false">Nữ</option>
+                            <option value="true">Nam</option>
+                        </select>
+                    </div>
+
+
+                </div>
+
+                <input class="form-control" asp-for="Input.PhoneNumber" placeholder="Số điện thoại" id="numberInfo" required>
+                <input class="form-control" asp-for="Input.Job" placeholder="Công việc" id="workInfo" required>
+                <input class="form-control" asp-for="Input.Address" placeholder="Địa chỉ" id="addressInfo" required>
+            </div>
+        </div>
+    </form>
+
+
+</body>
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
 }
+<style>
+    .form-control {
+        margin: 3vh;
+    }
+
+    .birthdayInfo {
+        text-align: center;
+    }
+
+    .avatar {
+        width: 200px;
+        height: 200px;
+        border: 1px solid black;
+        overflow: hidden;
+    }
+
+    .editInfoButton {
+        padding: 30px;
+    }
+
+        .editInfoButton .button {
+            border: 1px solid black;
+            background-color: transparent;
+            margin: 5px;
+            height: 50px;
+        }
+
+    select#genderInfo {
+        height: 38px;
+        border-radius: .25rem;
+        background-color: white;
+        border: 1px solid #ced4da;
+        padding: .375rem .75rem;
+        display: block;
+        width: 100%;
+        margin: 3vh;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        text-indent: 1px;
+        text-overflow: '';
+    }
+</style>

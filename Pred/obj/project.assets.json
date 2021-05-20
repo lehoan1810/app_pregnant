@@ -9247,11 +9247,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Asus\\source\\repos\\app_pregnant\\Pred\\Pred.csproj",
+      "projectUniqueName": "C:\\Users\\Asus\\Desktop\\app_pregnant\\Pred\\Pred.csproj",
       "projectName": "Pred",
-      "projectPath": "C:\\Users\\Asus\\source\\repos\\app_pregnant\\Pred\\Pred.csproj",
+      "projectPath": "C:\\Users\\Asus\\Desktop\\app_pregnant\\Pred\\Pred.csproj",
       "packagesPath": "C:\\Users\\Asus\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Asus\\source\\repos\\app_pregnant\\Pred\\obj\\",
+      "outputPath": "C:\\Users\\Asus\\Desktop\\app_pregnant\\Pred\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Asus\\AppData\\Roaming\\NuGet\\NuGet.Config",

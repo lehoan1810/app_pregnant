@@ -18,11 +18,11 @@ namespace Pred.Areas.Admin.Controllers
     public class ManageController : Controller
     {
         //private readonly RoleManager<IdentityRole> roleManager;
-        private readonly UserManager<IdentityUser> userManager;
+        private readonly UserManager<ApplicationUser> userManager;
 
         private readonly ApplicationDbContext _context;
 
-        public ManageController(UserManager<IdentityUser> userManager, ApplicationDbContext context)
+        public ManageController(UserManager<ApplicationUser> userManager, ApplicationDbContext context)
         {
             this.userManager = userManager;
             this._context = context;

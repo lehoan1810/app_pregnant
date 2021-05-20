@@ -1,6 +1,7 @@
 ﻿@page
 @using Microsoft.AspNetCore.Identity
-@inject UserManager<IdentityUser> userManager;
+@using Pred.Models
+@inject UserManager<ApplicationUser> userManager;
 @model IEnumerable<Microsoft.AspNetCore.Identity.IdentityUser>
 @{
     Layout = "/Areas/Admin/Views/Manage/_Layout.cshtml";
