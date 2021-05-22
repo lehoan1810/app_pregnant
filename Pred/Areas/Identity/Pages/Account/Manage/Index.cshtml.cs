@@ -1,22 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Pred.Models;
 
 namespace Pred.Areas.Identity.Pages.Account.Manage
 {
     public partial class IndexModel : PageModel
     {
-        private readonly UserManager<IdentityUser> _userManager;
-        private readonly SignInManager<IdentityUser> _signInManager;
+        private readonly UserManager<ApplicationUser> _userManager;
+        private readonly SignInManager<ApplicationUser> _signInManager;
 
         public IndexModel(
-            UserManager<IdentityUser> userManager,
-            SignInManager<IdentityUser> signInManager)
+            UserManager<ApplicationUser> userManager,
+            SignInManager<ApplicationUser> signInManager)
         {
             _userManager = userManager;
             _signInManager = signInManager;
@@ -33,20 +36,49 @@ namespace Pred.Areas.Identity.Pages.Account.Manage
         public class InputModel
         {
             [Phone]
-            [Display(Name = "Phone number")]
+            [Display(Name = "Số điện thoại")]
             public string PhoneNumber { get; set; }
+
+            [Display(Name = "Họ và tên")]
+            public string Name { get; set; }
+
+            [Display(Name = "Ngày sinh")]
+            public string BirthDate { get; set; }
+
+            [Display(Name = "Giới tính")]
+            public bool Sex { get; set; }
+
+            [Display(Name = "Công việc")]
+            public string Job { get; set; }
+
+            [Display(Name = "Địa chỉ")]
+            public string Address { get; set; }
+
+            public byte[] ProfilePic { get; set; }
         }
 
-        private async Task LoadAsync(IdentityUser user)
+        private async Task LoadAsync(ApplicationUser user)
         {
             var userName = await _userManager.GetUserNameAsync(user);
             var phoneNumber = await _userManager.GetPhoneNumberAsync(user);
+            var sex = user.Sex;
+            var address = user.Address;
+            var job = user.Job;
+            var birthdate = "2017-06-01";
+            var profilepic = user.ProfilePicture;
+            var name = user.Name;
 
             Username = userName;
 
             Input = new InputModel
             {
-                PhoneNumber = phoneNumber
+                Name = name,
+                ProfilePic = profilepic,
+                PhoneNumber = phoneNumber,
+                Sex = sex,
+                Address = address,
+                Job = job,
+                BirthDate = birthdate,
             };
         }
 
@@ -76,6 +108,17 @@ namespace Pred.Areas.Identity.Pages.Account.Manage
                 return Page();
             }
 
+            if (Request.Form.Files.Count > 0)
+            {
+                IFormFile file = Request.Form.Files.FirstOrDefault();
+                using (var dataStream = new MemoryStream())
+                {
+                    await file.CopyToAsync(dataStream);
+                    user.ProfilePicture = dataStream.ToArray();
+                }
+                await _userManager.UpdateAsync(user);
+            }
+
             var phoneNumber = await _userManager.GetPhoneNumberAsync(user);
             if (Input.PhoneNumber != phoneNumber)
             {
@@ -87,8 +130,43 @@ namespace Pred.Areas.Identity.Pages.Account.Manage
                 }
             }
 
+            var name = user.Name;
+            if (Input.Name != name)
+            {
+                user.Name = Input.Name;
+                await _userManager.UpdateAsync(user);
+            }
+
+            var address = user.Address;
+            if (Input.Address != address)
+            {
+                user.Address = Input.Address;
+                await _userManager.UpdateAsync(user);
+            }
+
+            var job = user.Job;
+            if (Input.Job != job)
+            {
+                user.Job = Input.Job;
+                await _userManager.UpdateAsync(user);
+            }
+
+            var birthdate = "2017-06-01";
+            if (Input.BirthDate != birthdate)
+            {
+                //user.BirthDate = Input.BirthDate;
+                await _userManager.UpdateAsync(user);
+            }
+
+            var sex = user.Sex;
+            if (Input.Sex != sex)
+            {
+                user.Sex = Input.Sex;
+                await _userManager.UpdateAsync(user);
+            }
+
             await _signInManager.RefreshSignInAsync(user);
-            StatusMessage = "Your profile has been updated";
+            StatusMessage = "Cập nhật thành công";
             return RedirectToPage();
         }
     }

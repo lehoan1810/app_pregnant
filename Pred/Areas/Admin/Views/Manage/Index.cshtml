@@ -1,6 +1,7 @@
 ﻿@page
 @using Microsoft.AspNetCore.Identity
-@inject UserManager<IdentityUser> userManager;
+@using Pred.Models
+@inject UserManager<ApplicationUser> userManager;
 @inject RoleManager<IdentityRole> roleManager;
 @model IEnumerable<Microsoft.AspNetCore.Identity.IdentityUser>
 @{

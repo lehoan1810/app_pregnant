@@ -7,9 +7,10 @@ using Pred.Models;
 
 namespace Pred.Data
 {
-    public class ApplicationDbContext : IdentityDbContext
+    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public DbSet<Hospital> Hospitals { get; set; }
+        public DbSet<ChatMessage> chatMessages { get; set; }
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {

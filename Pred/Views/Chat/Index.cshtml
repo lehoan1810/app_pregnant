@@ -1,0 +1,91 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using Pred.Models
+@inject SignInManager<ApplicationUser> SignInManager
+@model List<ApplicationUser>;
+<div class="container">
+    <div class="row">&nbsp;</div>
+    <div class="row">
+        <div class="col-2">Người gửi</div>
+        <div class="col-4"><input type="text" id="username" value="@User.Identity.Name" userid="@SignInManager.UserManager.GetUserId(User)" disabled/></div>
+    </div>
+    <div class="row">
+        <div class="col-2">Người nhận</div>
+        <div class="col-4">
+            <select name="users" id="users">
+                @foreach (var user in Model)
+                {
+                    if (user.Id != SignInManager.UserManager.GetUserId(User))
+                    {
+                        <option value="@user.Id">@user.Email</option>
+                    }
+                }
+            </select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-2">Tin nhắn</div>
+        <div class="col-4 messages"><input type="text" id="messageInput" /></div>
+    </div>
+    <div class="row">&nbsp;</div>
+    <div class="row">
+        <div class="col-6">
+            <input type="button" id="sendButton" value="Send Message" />
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12">
+        <hr />
+    </div>
+</div>
+<div class="row">
+    <div class="col-6">
+        <ul class ="messagesList" id="messagesList"></ul>
+    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="~/js/signalr/dist/browser/signalr.js"></script>
+<script src="~/js/chat.js"></script>
+<style>
+    .messagesList {
+        height: 15em;
+        overflow: hidden;
+        overflow-y: scroll;
+        scrollbar-width: none;
+    }
+    .message {
+        list-style-type: none;
+        position: relative;
+        line-height: 3em;
+        margin-left: 3em;
+        margin-top: 1em;
+    }
+    .message::before {
+        content: "";
+        display: inline-block;
+        width: 3em;
+        height: 3em;
+        border-radius: 50%;
+        position: absolute;
+        left: -3.5em;
+        background: blue
+    }
+    .sender {
+        text-align: right;
+        list-style-type: none;
+        position: relative;
+        line-height: 3em;
+        margin-right: 4em;
+        margin-top: 1em;
+    }
+    .sender::after {
+        content: "";
+        display: inline-block;
+        width: 3em;
+        height: 3em;
+        border-radius: 50%;
+        position: absolute;
+        right: -3.5em;
+        background: red;
+    }
+</style>

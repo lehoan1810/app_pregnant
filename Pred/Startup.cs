@@ -12,6 +12,7 @@ using Pred.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Pred.Models;
 
 namespace Pred
 {
@@ -31,7 +32,7 @@ namespace Pred
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
 
-            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+            services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
@@ -43,6 +44,8 @@ namespace Pred
             services.AddControllers()
                     .AddJsonOptions(options =>
                        options.JsonSerializerOptions.PropertyNamingPolicy = null);
+
+            services.AddSignalR();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -77,6 +80,8 @@ namespace Pred
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
+
+                endpoints.MapHub<ChatHub>("/chatHub");
             });
             app.UseStaticFiles();
             app.UseBrowserLink();
