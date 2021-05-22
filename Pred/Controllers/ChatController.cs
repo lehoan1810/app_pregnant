@@ -33,7 +33,7 @@ namespace Pred.Controllers
         public JsonResult GetMessages(string group)
         {
             var hs = Json(_context.chatMessages.Where(x => x.group == group)
-                .OrderBy(x => x.time).Take(10),
+                .OrderByDescending(x => x.time).Take(10),
                 new JsonSerializerOptions
             {
                 WriteIndented = true,
