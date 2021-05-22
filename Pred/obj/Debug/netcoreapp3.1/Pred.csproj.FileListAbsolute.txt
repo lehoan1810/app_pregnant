@@ -1337,3 +1337,4 @@ C:\Users\Asus\Desktop\app_pregnant\Pred\obj\Debug\netcoreapp3.1\staticwebassets\
 C:\Users\Asus\Desktop\app_pregnant\Pred\obj\Debug\netcoreapp3.1\Pred.dll
 C:\Users\Asus\Desktop\app_pregnant\Pred\obj\Debug\netcoreapp3.1\Pred.pdb
 C:\Users\Asus\Desktop\app_pregnant\Pred\obj\Debug\netcoreapp3.1\Pred.genruntimeconfig.cache
+C:\Users\Asus\Desktop\app_pregnant\Pred\obj\Debug\netcoreapp3.1\Razor\Views\Chat\Index.cshtml.g.cs
