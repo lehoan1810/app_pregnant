@@ -1,0 +1,80 @@
+﻿@page
+@model Pred.Views.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="row justify-content-center">
+    <div class="col-8">
+        <h4>Ghi chú</h4>
+        <p>
+            <a asp-page="Create">Thêm ghi chú</a>
+        </p>
+        @foreach (var item in Model.Note)
+        {
+            <div class="container note-container">
+                <div class="note">
+                    <div class="row justify-content-around p-3">
+
+                        <a class="col-5" asp-page="./Details" asp-route-id="@item.ID">
+                            @item.tilte
+                        </a>
+
+                        <div class="col-2 text-muted">
+                            @item.dateAdded.ToString("dd/MM/yyyy")
+                        </div>
+
+                        <div class="col-2">
+                            <a class="mr-4" asp-page="./Edit" asp-route-id="@item.ID">
+                                <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                            </a>
+                            <a asp-page="./Delete" asp-route-id="@item.ID">
+                                <i class="fa fa-trash" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="m-2 note-note">
+                        @item.note
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+@*<tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.tilte)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.note)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dateAdded)
+        </td>
+        <td>
+            <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
+            <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
+            <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+        </td>
+    </tr>*@
+
+<style>
+    .note-container {
+        max-width: 800px;
+        margin-bottom: 1em;
+    }
+
+    .note-note {
+        border-top: 1px solid #bdbdbd;
+        padding: 1em;
+    }
+
+    .note {
+        border-radius: 1em;
+        min-height: 10vh;
+        max-width: 800px;
+        background: #f5f5f5
+    }
+</style>

@@ -43,6 +43,12 @@ namespace Pred.Areas.Admin.Controllers
             return View(_context.Hospitals);
         }
 
+        public ActionResult Meal()
+        {
+            Meal m = new Meal();
+            return View(m);
+        }
+
         [HttpGet]
         public async Task<IActionResult> AddDoctor(string userId)
         {
@@ -67,7 +73,7 @@ namespace Pred.Areas.Admin.Controllers
         }
 
         [HttpGet]
-        public IActionResult AddHospital(string name, float longitude, float latitude)
+        public IActionResult AddHospital(string name, float longitude, float latitude, string details)
         {
             if (String.IsNullOrWhiteSpace(name))
                 return View("Hospitals");
@@ -75,6 +81,7 @@ namespace Pred.Areas.Admin.Controllers
             h.Name = name;
             h.lo = longitude;
             h.la = latitude;
+            h.details = details;
             _context.Hospitals.Add(h);
             _context.SaveChanges();
             return View("Hospital");
@@ -86,7 +93,7 @@ namespace Pred.Areas.Admin.Controllers
             var hs = Json(_context.Hospitals, new JsonSerializerOptions
             {
                 WriteIndented = true,
-            }); ;
+            });
             return hs;
         }
 

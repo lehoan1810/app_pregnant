@@ -61,7 +61,7 @@
     @foreach (var user in userManager.GetUsersInRoleAsync("Doctor").Result)
     {
         <tr id="@user.Id">
-            <td>Chưa làm</td>
+            <td>@user.Name</td>
             <td>@user.Email</td>
             <td>@user.PhoneNumber</td>
             <td>

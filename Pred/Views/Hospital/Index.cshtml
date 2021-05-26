@@ -1,0 +1,95 @@
+﻿@using Pred.Models;
+@model IEnumerable<Hospital>
+@{
+}
+
+
+<div id="container" onload="loadMapScenario();">
+    <div id="myMap2" style='width: 100%; height: 400px; border: 1px solid black;'>
+
+    </div>
+</div>
+
+<table id="hospital-table" class="table table-striped">
+    <thead class="thead-dark">
+        <tr>
+            <th>Tên bệnh viện</th>
+            <th>Chi tiết</th>
+            <th></th>
+        </tr>
+    </thead>
+    @foreach (var hp in Model)
+    {
+        <tr>
+            <td onclick="goToHospital(@hp.la, @hp.lo)">@hp.Name</td>
+            <td>@hp.details</td>
+            <td></td>
+        </tr>
+
+    }
+</table>
+
+
+<script type='text/javascript' src='https://www.bing.com/api/maps/mapcontrol?callback=loadMapScenario' async defer></script>
+
+<script>
+    var map;
+    var Point1 = null;
+    var hospitals;
+    var lon;
+    var lat;
+
+    function loadMapScenario() {
+        map = new Microsoft.Maps.Map(document.getElementById('myMap2'), {
+            credentials: 'Aou71i_elK0nhhgABTBt8g0hGOtZc7UNNUavfBPLa-hBK_3HktQsZUqSOOJNZ0D3'
+        });
+
+        getHospital();
+
+        var h = map.entities[0];
+
+        map.setView({ center: new Microsoft.Maps.Location(35.027222, -111.0225), zoom: 15 })
+        //Microsoft.Maps.Events.addHandler(map, 'click', function (e) {
+        //    if (e.targetType == "map") {
+        //        map.entities.clear();
+        //        var point = new Microsoft.Maps.Point(e.getX(), e.getY());
+        //        var loc = e.target.tryPixelToLocation(point);
+        //        var location = new Microsoft.Maps.Location(loc.latitude, loc.longitude);
+        //        Point1 = new Microsoft.Maps.Pushpin(location, { color: 'blue' });
+        //        map.entities.push(Point1);
+        //        lon = loc.longitude;
+        //        lat = loc.latitude;
+        //    }
+        //});
+    }
+
+    function goToHospital(la, lo) {
+        map.setView({ center: new Microsoft.Maps.Location(la,lo), zoom: 15 })
+    }
+
+    function getName() {
+        var name = document.getElementById('Name').value;
+    }
+
+    function getHospital() {
+        $.ajax({
+            url: '@Url.Action("getHospitals","Hospital")',
+            data: {},
+            success:
+                function (response) {
+                    hospitals = response;
+                    hospitals.forEach(h => {
+                        var loc = new Microsoft.Maps.Location(h.la, h.lo)
+                        var pin = new Microsoft.Maps.Pushpin(loc, { color: 'red', title: h.Name });
+                        map.entities.push(pin)
+                    })
+                },
+            error:
+                function (response) {
+                    alert("Error: " + response);
+                }
+        })
+    }
+
+</script>
+

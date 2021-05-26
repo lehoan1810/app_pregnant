@@ -54,6 +54,11 @@ namespace Pred.Areas.Identity.Pages.Account.Manage
             [Display(Name = "Địa chỉ")]
             public string Address { get; set; }
 
+
+            [Display(Name = "Số tuần thai")]
+            [Range(0,36, ErrorMessage = "Phải trong khoảng từ 0 tới 36 tuần")]
+            public int Week { get; set; }
+
             public byte[] ProfilePic { get; set; }
         }
 
@@ -67,6 +72,7 @@ namespace Pred.Areas.Identity.Pages.Account.Manage
             var birthdate = "2017-06-01";
             var profilepic = user.ProfilePicture;
             var name = user.Name;
+            var week = user.Week;
 
             Username = userName;
 
@@ -79,6 +85,7 @@ namespace Pred.Areas.Identity.Pages.Account.Manage
                 Address = address,
                 Job = job,
                 BirthDate = birthdate,
+                Week = week,
             };
         }
 
@@ -162,6 +169,13 @@ namespace Pred.Areas.Identity.Pages.Account.Manage
             if (Input.Sex != sex)
             {
                 user.Sex = Input.Sex;
+                await _userManager.UpdateAsync(user);
+            }
+
+            var week = user.Week;
+            if (Input.Week != week)
+            {
+                user.Week = Input.Week;
                 await _userManager.UpdateAsync(user);
             }
 

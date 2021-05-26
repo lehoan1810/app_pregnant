@@ -16,5 +16,7 @@ namespace Pred.Data
         {
 
         }
+        public DbSet<Pred.Models.Meal> Meal { get; set; }
+        public DbSet<Pred.Models.Note> Note { get; set; }
     }
 }

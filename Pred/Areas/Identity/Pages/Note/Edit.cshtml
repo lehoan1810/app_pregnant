@@ -1,0 +1,43 @@
+﻿@page
+@model Pred.Views.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <h1>Edit</h1>
+
+    <h4>Note</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Note.tilte" class="control-label"></label>
+                    <input asp-for="Note.tilte" class="form-control" />
+                    <span asp-validation-for="Note.tilte" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Note.note" class="control-label"></label>
+                    <input asp-for="Note.note" class="form-control" />
+                    <span asp-validation-for="Note.note" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Save" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div>
+        <a asp-page="./Index">Back to List</a>
+    </div>
+
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

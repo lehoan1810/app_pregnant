@@ -1,0 +1,41 @@
+﻿@page
+@model Pred.Views.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <h3>Thêm ghi chú</h3>
+
+    <div class="row">
+        <div class="col-md-4">
+            <form method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label class="control-label">Tiêu đề</label>
+                    <input asp-for="Note.tilte" class="form-control" />
+                    <span asp-validation-for="Note.tilte" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Nội dung</label>
+                    <textarea rows="6" asp-for="Note.note" class="form-control"></textarea>
+                    <span asp-validation-for="Note.note" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div>
+        <a asp-page="Index">Quay lại</a>
+    </div>
+
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

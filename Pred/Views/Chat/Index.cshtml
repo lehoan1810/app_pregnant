@@ -2,90 +2,105 @@
 @using Pred.Models
 @inject SignInManager<ApplicationUser> SignInManager
 @model List<ApplicationUser>;
-<div class="container">
-    <div class="row">&nbsp;</div>
+
+<div class="container" style="min-height: 50vh">
     <div class="row">
-        <div class="col-2">Người gửi</div>
-        <div class="col-4"><input type="text" id="username" value="@User.Identity.Name" userid="@SignInManager.UserManager.GetUserId(User)" disabled/></div>
-    </div>
-    <div class="row">
-        <div class="col-2">Người nhận</div>
-        <div class="col-4">
-            <select name="users" id="users">
-                @foreach (var user in Model)
+        <div class="col-3 users-chat overflow-auto">
+            @foreach (var user in Model)
+            {
+                if (user.Id != SignInManager.UserManager.GetUserId(User))
                 {
-                    if (user.Id != SignInManager.UserManager.GetUserId(User))
-                    {
-                        <option value="@user.Id">@user.Email</option>
-                    }
+                    <div class="row justify-content-between flex-row align-items-center chat-user" >
+                        @if (user.ProfilePicture != null)
+                        {
+                            <div class="user-profile-picture-container">
+                                <img id="@user.Id" class="profile-pic" src="data:image/*;base64,@(Convert.ToBase64String(user.ProfilePicture))" />
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="">
+                                <img id="@user.Id" src="~/asset/userdefault/avatar.jpg" class="profile-pic" />
+                            </div>
+                        }
+                        <div class="" onclick="setChatToUser('@user.Id')">@user.Name</div>
+                        <button class="btn" onclick="alert('info Bác sĩ')">
+                            <i class="fa fa-info" aria-hidden="true"></i>
+                        </button>
+                    </div>
                 }
-            </select>
+            }
+        </div>
+
+        <div class="col-8 d-flex flex-column"   >
+            <input type="text" class="w-100" id="username" value="@User.Identity.Name" userid="@SignInManager.UserManager.GetUserId(User)" disabled hidden />
+            <input type="text" id="users-tb" name="users" disabled hidden />
+                <div id="chatting-user"></div>
+                <ul class="overflow-auto h-75 message-list" id="messagesList"></ul>
+                <div>
+                    <div class="d-flex p-1 m-1">
+                        <input class="w-100 m-1 form-control" style="border-radius:500px" type="text" id="messageInput"/>
+                        <input type="button" class="btn btn-primary m-1" style="border-radius:500px" id="sendButton" value="Gửi" />
+                    </div>
+                </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col-2">Tin nhắn</div>
-        <div class="col-4 messages"><input type="text" id="messageInput" /></div>
-    </div>
-    <div class="row">&nbsp;</div>
-    <div class="row">
-        <div class="col-6">
-            <input type="button" id="sendButton" value="Send Message" />
-        </div>
-    </div>
 </div>
-<div class="row">
-    <div class="col-12">
-        <hr />
-    </div>
-</div>
-<div class="row">
-    <div class="col-6">
-        <ul class ="messagesList" id="messagesList"></ul>
-    </div>
-</div>
+
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script src="~/js/signalr/dist/browser/signalr.js"></script>
 <script src="~/js/chat.js"></script>
+
 <style>
-    .messagesList {
-        height: 15em;
-        overflow: hidden;
-        overflow-y: scroll;
-        scrollbar-width: none;
-    }
     .message {
+        color:white;
+        display: inline-block;
         list-style-type: none;
         position: relative;
         line-height: 3em;
-        margin-left: 3em;
+        margin-left: 1em;
         margin-top: 1em;
+        border-radius: 999vw;
+        background: #757575;
+        padding-left: 1em;
+        padding-right: 1em;
     }
-    .message::before {
-        content: "";
-        display: inline-block;
-        width: 3em;
-        height: 3em;
-        border-radius: 50%;
-        position: absolute;
-        left: -3.5em;
-        background: blue
-    }
+
     .sender {
-        text-align: right;
         list-style-type: none;
         position: relative;
         line-height: 3em;
-        margin-right: 4em;
+        margin-right: 1em;
         margin-top: 1em;
+        padding-left: 1em;
+        padding-right: 1em;
+        border-radius: 999vw;
+        text-align: right;
     }
-    .sender::after {
-        content: "";
-        display: inline-block;
+
+    .profile-pic {
         width: 3em;
         height: 3em;
         border-radius: 50%;
-        position: absolute;
-        right: -3.5em;
-        background: red;
+        overflow: hidden;
+        margin: 1em;
+    }
+
+    .chat-user {
+        border-bottom: solid 1px #E5E5E5;
+        margin-right: 1em
+    }
+
+    .users-chat {
+        border-right: solid 1px #E5E5E5;
+        margin-bottom: 1em;
+        margin-top: 1em
+    }
+
+    .message-list {
+        border: solid 1px #E5E5E5;
+        margin: 1em;
+        border-radius: 1em;
     }
 </style>

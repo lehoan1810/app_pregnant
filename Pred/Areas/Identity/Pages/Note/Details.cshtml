@@ -1,0 +1,45 @@
+﻿@page
+@model Pred.Views.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container note-container">
+    <h4>Ghi chú</h4>
+    <div class="note">
+        <div class="row justify-content-between">
+
+            <h5 class="col-5 m-2">
+                @Html.DisplayFor(model => model.Note.tilte)
+            </h5>
+            <a class="col-2" asp-page="./Edit" asp-route-id="@Model.Note.ID">Edit</a>
+        </div>
+        <div class="m-2 text-muted">
+            @Html.DisplayFor(model => model.Note.dateAdded)
+        </div>
+        <div class="m-2 note-note">
+            @Html.DisplayFor(model => model.Note.note)
+        </div>
+    </div>
+    <div>
+        <a asp-page="./Index">Back to List</a>
+    </div>
+</div>
+
+<style>
+    .note-container {
+        max-width: 800px;
+    }
+    .note-note {
+        border-top: 1px solid black;
+        min-height: 5em;
+    }
+    .note {
+        border-radius: 1em;
+        border: 1px solid black;
+        min-height: 10vh;
+        max-width: 800px;
+        margin: 5em;
+    }
+</style>

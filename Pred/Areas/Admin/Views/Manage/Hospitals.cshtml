@@ -15,7 +15,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="modalLabel">Thêm bác sĩ</h5>
+                <h5 class="modal-title" id="modalLabel">Thêm bệnh viện</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -23,7 +23,11 @@
             <div class="modal-body">
                 <div class="overflow-auto">
                     <label for="Name">Tên bệnh viện</label>
-                    <input id="Name" name="Name" type="text" onkeypress="getName()"/>
+                    <input id="Name" name="Name" type="text" onkeypress="getName()" />
+                    <br />
+                    <label for="Name">Chi tiết</label>
+                    <input id="Details" name="Details" type="text" onkeypress="getName()" />
+                    <br />
                     <label>Chọn vị trí</label>
                     <div id="container" onload="loadMapScenario();">
                         <div id="myMap" style='width: 100%; height: 400px; border: 1px solid black;'>
@@ -46,7 +50,6 @@
     <thead class="thead-dark">
         <tr>
             <th>Tên bệnh viện</th>
-            <th>Vị trí</th>
             <th>Chi tiết</th>
             <th></th>
         </tr>
@@ -55,8 +58,7 @@
     {
         <tr>
             <td>@hp.Name</td>
-            <td></td>
-            <td></td>
+            <td>@hp.details</td>
             <td><a class="btn" asp-action="deleteHospital" asp-route-Id="@hp.ID.ToString()">Xóa</a></td>
         </tr>            
     }
@@ -96,9 +98,13 @@
         var name = document.getElementById('Name').value;
     }
 
+    function getDetails() {
+        var details = document.getElementById('Details').value;
+    }
 
     function clearForm() {
         document.getElementById('Name').value = '';
+        document.getElementById('Details').value = '';
     }
 
     function addHospital() {
@@ -107,7 +113,8 @@
             data: {
                 name: document.getElementById('Name').value,
                 longitude: lon,
-                latitude: lat
+                latitude: lat,
+                details: document.getElementById('Details').value
             },
             error: function () {
                 window.location.reload();

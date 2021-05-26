@@ -34,7 +34,8 @@ namespace Pred
 
             services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddRoles<IdentityRole>()
-                .AddEntityFrameworkStores<ApplicationDbContext>();
+                .AddEntityFrameworkStores<ApplicationDbContext>()
+                .AddSignInManager();
 
             services.AddControllersWithViews();
             services.AddRazorPages();
