@@ -47,7 +47,7 @@ namespace Pred.Views
             {
                 return Page();
             }
-
+            
             _context.Attach(Note).State = EntityState.Modified;
 
             try

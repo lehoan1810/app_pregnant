@@ -15,6 +15,7 @@
         <div class="col-md-4">
             <form method="post">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input asp-for="Note.ID" class="form-control" hidden />
                 <div class="form-group">
                     <label asp-for="Note.tilte" class="control-label"></label>
                     <input asp-for="Note.tilte" class="form-control" />
