@@ -9524,19 +9524,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Asus\\.nuget\\packages\\": {}
+    "C:\\Users\\hoanh\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Asus\\Desktop\\app_pregnant\\Pred\\Pred.csproj",
+      "projectUniqueName": "Q:\\STUDINGS\\NAM 3 HK2\\CongNghePhanMem\\version 3\\app_pregnant\\Pred\\Pred.csproj",
       "projectName": "Pred",
-      "projectPath": "C:\\Users\\Asus\\Desktop\\app_pregnant\\Pred\\Pred.csproj",
-      "packagesPath": "C:\\Users\\Asus\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Asus\\Desktop\\app_pregnant\\Pred\\obj\\",
+      "projectPath": "Q:\\STUDINGS\\NAM 3 HK2\\CongNghePhanMem\\version 3\\app_pregnant\\Pred\\Pred.csproj",
+      "packagesPath": "C:\\Users\\hoanh\\.nuget\\packages\\",
+      "outputPath": "Q:\\STUDINGS\\NAM 3 HK2\\CongNghePhanMem\\version 3\\app_pregnant\\Pred\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Asus\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\hoanh\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -9548,6 +9548,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "projectReferences": {}
         }
       },
@@ -9559,6 +9560,7 @@
     },
     "frameworks": {
       "netcoreapp3.1": {
+        "targetAlias": "netcoreapp3.1",
         "dependencies": {
           "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
             "target": "Package",
@@ -9617,7 +9619,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
     <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&family=Roboto:wght@100;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -28,8 +30,12 @@
                             <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="AboutUs">Về chúng tôi</a>
+                            <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="AboutUs">Nhạc</a>
+                        </li> 
+                        <li class="nav-item">
+                            <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Music">về Chúng tôi</a>
                         </li>
+
                         @if (SignInManager.IsSignedIn(User))
                         {
                             <li class="nav-item">
@@ -81,7 +87,7 @@
                 <div>
                     <ul>
                         <li>
-                            <a href="https://www.facebook.com/codersgyan">
+                            <a href="">
                                 <img src="./icons/facebook.svg" alt="">
                                 <span>Facebook</span>
                             </a>
@@ -93,7 +99,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="https://www.instagram.com/codersgyan/">
+                            <a href="">
                                 <img src="./icons/instagram.svg" alt="">
                                 <span>Instagram</span>
                             </a>
@@ -102,10 +108,10 @@
                 </div>
             </div>
             <div class="box instagram-api">
-                <h3>Instagram</h3>
+                <h3>Fanpage</h3>
                 <div class="post-wrap">
                     <div>
-                        <img src="./asset/anhbau6.jpg" alt="">
+                        <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fhotrophunumangthai&tabs=timeline&width=340&height=500&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="340" height="340" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
                     </div>
                 </div>
             </div>
@@ -113,7 +119,7 @@
     </footer>
     <footer class="copyright">
         <div>
-            Copyright © 2021 .All rights reserved by <a href="#">Nhóm 27</a>.
+            <a href="#">Copyright © 2021 .All rights reserved by Nhóm 27</a>.
         </div>
     </footer>
 

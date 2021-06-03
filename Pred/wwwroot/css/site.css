@@ -370,10 +370,11 @@ footer.copyright {
     background: #232B38;
     color: var(--pure);
     text-align: center;
-    font-size: 0.75rem;
+    font-size: 1rem;
 }
 
     footer.copyright a {
         color: var(--primary);
         text-decoration: none;
+        
     }
