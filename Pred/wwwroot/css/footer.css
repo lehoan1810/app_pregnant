@@ -1,7 +1,7 @@
-footer{
-    background: #DBDBDB ;
+footer {
+    background: #2D333F;
     padding-top: 30px;
-    display:block;
+    display: block;
 }
 footer div.container {
     display: flex;
@@ -17,27 +17,34 @@ footer div.box{
     width: calc(100%/3);
     text-align: center;
 }
-footer div.box h3{
-    color:#5C5C5C;
-    border-bottom: #5C5C5C 1px solid;
-    padding: 10px 0;
-    margin: 0 10px;
-    margin-bottom: 20px;
-}
+    footer div.box h3 {
+        color: #fff;
+        border-bottom: #fff 1px solid;
+        padding: 10px 0;
+        margin: 0 10px;
+        margin-bottom: 20px;
+    }
 footer div.box .box-item{
     margin: 10px 0;
 }
-footer div.box .box-item a{
-    text-decoration:none;
-    color: #5C5C5C;
+    footer div.box .box-item a {
+        text-decoration: none;
+        color: #fff;
+    }
+.copyright {
+    
+    padding: 1rem 0;
+    text-align:center;
+    
 }
-footer div.copyright{
-    display: flex;
-    text-align: center;
+.copy{
+    
 }
-footer div.copyright a{
-    padding: 10px 30px;
-    text-align: center;
-    color: #5C5C5C;
+.copy a {
+    color: #fff;
     text-decoration: none;
+    text-align:center;
+}
+footer p {
+    color: #fff;
 }

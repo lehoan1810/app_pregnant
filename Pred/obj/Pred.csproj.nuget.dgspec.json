@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "E:\\CNPM\\AppbBaBau\\app_pregnant\\app_pregnant\\Pred\\Pred.csproj": {}
+    "Q:\\STUDINGS\\NAM 3 HK2\\CongNghePhanMem\\version 3.1\\app_pregnant\\Pred\\Pred.csproj": {}
   },
   "projects": {
-    "E:\\CNPM\\AppbBaBau\\app_pregnant\\app_pregnant\\Pred\\Pred.csproj": {
+    "Q:\\STUDINGS\\NAM 3 HK2\\CongNghePhanMem\\version 3.1\\app_pregnant\\Pred\\Pred.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\CNPM\\AppbBaBau\\app_pregnant\\app_pregnant\\Pred\\Pred.csproj",
+        "projectUniqueName": "Q:\\STUDINGS\\NAM 3 HK2\\CongNghePhanMem\\version 3.1\\app_pregnant\\Pred\\Pred.csproj",
         "projectName": "Pred",
-        "projectPath": "E:\\CNPM\\AppbBaBau\\app_pregnant\\app_pregnant\\Pred\\Pred.csproj",
-        "packagesPath": "C:\\Users\\chaos\\.nuget\\packages\\",
-        "outputPath": "E:\\CNPM\\AppbBaBau\\app_pregnant\\app_pregnant\\Pred\\obj\\",
+        "projectPath": "Q:\\STUDINGS\\NAM 3 HK2\\CongNghePhanMem\\version 3.1\\app_pregnant\\Pred\\Pred.csproj",
+        "packagesPath": "C:\\Users\\hoanh\\.nuget\\packages\\",
+        "outputPath": "Q:\\STUDINGS\\NAM 3 HK2\\CongNghePhanMem\\version 3.1\\app_pregnant\\Pred\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\chaos\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\hoanh\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -97,7 +97,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     }
