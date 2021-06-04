@@ -1,0 +1,43 @@
+footer{
+    background: #DBDBDB ;
+    padding-top: 30px;
+    display:block;
+}
+footer div.container {
+    display: flex;
+}
+@media only screen and (max-width: 900px) {
+    footer div.container{
+        flex-direction: column;
+        align-items: center;
+    }
+  }
+
+footer div.box{
+    width: calc(100%/3);
+    text-align: center;
+}
+footer div.box h3{
+    color:#5C5C5C;
+    border-bottom: #5C5C5C 1px solid;
+    padding: 10px 0;
+    margin: 0 10px;
+    margin-bottom: 20px;
+}
+footer div.box .box-item{
+    margin: 10px 0;
+}
+footer div.box .box-item a{
+    text-decoration:none;
+    color: #5C5C5C;
+}
+footer div.copyright{
+    display: flex;
+    text-align: center;
+}
+footer div.copyright a{
+    padding: 10px 30px;
+    text-align: center;
+    color: #5C5C5C;
+    text-decoration: none;
+}
