@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "hpXNgpq52AWLqalGtajeRVR9CqOIldQzQix/TvR+Ki0IpvZtukNlm4ZBn4jjHL2HosZce/c5lR1poBosmqxZCA==",
+  "dgSpecHash": "Mp+hjDBCG9fTB1bq+AqfObh1meJj03Nd1umKrLIeDRCbJ29syxo5RfiJUFV6Ei3vy7zTol12X7ZgnTSawpWHrg==",
   "success": true,
-  "projectFilePath": "Q:\\STUDINGS\\NAM 3 HK2\\CongNghePhanMem\\version 3.1\\app_pregnant\\Pred\\Pred.csproj",
+  "projectFilePath": "T:\\app_pregnant\\Pred\\Pred.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\hoanh\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\3.1.13\\microsoft.aspnetcore.cryptography.internal.3.1.13.nupkg.sha512",
     "C:\\Users\\hoanh\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\3.1.13\\microsoft.aspnetcore.cryptography.keyderivation.3.1.13.nupkg.sha512",

@@ -37,6 +37,27 @@ namespace Pred.Controllers
         {
             return View();
         }
+        public IActionResult Music()
+        {
+            return View();
+        }
+        public IActionResult food()
+        {
+            return View();
+        }
+
+        public ActionResult thaidau()
+        {
+            return PartialView("thaidau");
+        }
+        public ActionResult thaigiua()
+        {
+            return PartialView("thaigiua");
+        }
+        public ActionResult thaicuoi()
+        {
+            return PartialView("thaicuoi");
+        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

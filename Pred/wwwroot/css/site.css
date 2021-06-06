@@ -77,9 +77,19 @@ section.about-meal img {
 width: 93%;
 }
 
-
-.flex-1 {
+.section-heading:after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 30px;
+    background-image: url(../asset/hr.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    bottom: -40px;
 }
+
+
 
 section.about-meal h2 {
 /*font-family: "Raleway-bold";*/
@@ -114,7 +124,7 @@ display:flex;
 /*font-family: "Raleway-bold";*/
 text-align: center;
 Position: relative;
-margin-bottom: 2rem;
+margin-bottom: 4rem;
 font-size: 30px;
 color: #653AC1;
 font-weight: 900;
@@ -276,4 +286,196 @@ section.big-deal .timer {
 .text-pure {
 color: #FEFEFE;
 }
+.tinhtoan {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #909ba7;
+}
+.doan {
+    color: #fff;
+    margin-left: 20px;
+}
 
+    .tinhtoan p {
+        font-size: 20px;
+        font-weight: 600;
+    }
+
+strong {
+    margin-left: 20px;
+    color: #0F3866;
+    font-size:19px;
+}
+
+.dudoan {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #909ba7;
+}
+.btn-abouts {
+    width: 100px;
+    height: 30px;
+    margin-left: 50px;
+    font-size: 15px;
+    border-radius: 20px;
+    background-color: beige;
+    cursor: pointer;
+    margin-bottom:auto;
+}
+section.latest-news {
+    background: #f0f0f0;
+    position: relative;
+    z-index: 0;
+}
+
+
+section.latest-news .article-wrapper {
+    display: flex;
+    margin-right: -2rem;
+    margin-top:3rem;
+}
+
+.latest-news .article-wrapper .card {
+    margin-right: 2rem;
+    background: #ffffff;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+}
+.container{
+    width:100%;
+}
+
+    .latest-news .article-wrapper .card img {
+        width: 100%;
+    }
+
+    .latest-news .article-wrapper .card .card-content {
+        padding: 2rem;
+    }
+
+        .latest-news .article-wrapper .card .card-content .post-meta {
+            margin-bottom: 1rem;
+        }
+
+            .latest-news .article-wrapper .card .card-content .post-meta .comment-count {
+                margin-left: 1rem;
+            }
+
+        .latest-news .article-wrapper .card .card-content h2 {
+            font-family: "Raleway-bold";
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .latest-news .article-wrapper .card .card-content p {
+            line-height: 1.6;
+        }
+
+.latest-news .btn-wrapper {
+    margin-top: 2rem;
+}
+
+.imgBx .card-image{
+    width:100%;
+    height:70%;
+}
+
+.boxx {
+    display: flex;
+    transform: translate(0%, 0%);
+    width: 322px;
+    height: 450px;
+    background: #000;
+    border-radius: 15px;
+    /* z-index: 1; */
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+.imgBx img {
+    width: 100%;
+    height: 500px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: 0.5s;
+    z-index: 2;
+    background: #000;
+}
+
+.boxx:hover .imgBx img {
+    opacity: 0.5;
+}
+
+.social-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+    display: flex;
+    margin: 0 auto;
+    padding: 0;
+}
+
+    .social-icon h2 {
+        list-style: none;
+        font-size: 28px;
+    }
+
+        .social-icon h2 {
+            position: relative;
+            display: block;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            background: #fff;
+            color: #262626;
+            margin: 0 5px;
+            border-radius: 50%;
+            transition: 0.5s;
+            opacity: 0;
+            transform: translateY(150px);
+        }
+
+.box:hover .social-icon h2 {
+    transform: translateY(0px);
+    opacity: 1;
+}
+
+.detail {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: #fff;
+    width: 100%;
+    z-index: 4;
+    height: 134px;
+    box-sizing: border-box;
+}
+
+    .detail h2 {
+        margin: 10px 0 0;
+        padding: 0;
+        text-align: center;
+    }
+
+        .detail h2 span {
+            color: #bbb;
+            font-size: 16px;
+        }
+
+.containerr{
+    display:flex;
+    justify-content:space-evenly;
+}
