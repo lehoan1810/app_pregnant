@@ -3,7 +3,9 @@
 @{
     ViewData["Title"] = "Home Page";
 }
-
+<head>
+    <link href="~/css/function-grid.css" rel="stylesheet" />
+</head>
 <div id="carouselExampleIndicators" class="carousel slide" style=" width:100%; height: 500px; overflow:hidden" data-ride="carousel">
     <ol class="carousel-indicators">
         <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -54,48 +56,12 @@
                 </div>
             </div>
         </section>
+
+        
+
     }
 </div>
-<div class="container">
-    <div class="row">
-    </div>
-    <div class="row justify-content-md-center">
-        <div class="col-8">
-            <h2 class="my-5">Dịch vụ của chúng tôi</h2>
-            <div class="container">
-                <div class="row justify-content-md-center">
-                    <div class="col-lg-4 col-sm-12">
-                        <div class="card pt-4 h-100 w-100">
-                            <img class="card-img-top w-75 m-auto" src="~/asset/hospital.png" alt="">
-                            <div class="card-body">
-                                <h5 class="card-title">Tìm bệnh viện</h5>
-                                <a href="#" class="btn btn-danger w-100">Tìm hiểu thêm</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-sm-12">
-                        <div class="card pt-4 h-100 w-100">
-                            <img class="card-img-top w-75 m-auto" src="~/asset/dish.png" alt="">
-                            <div class="card-body">
-                                <h5 class="card-title">Xây dựng chế độ dinh dưỡng</h5>
-                                <a href="#" class="btn btn-danger w-100">Tìm hiểu thêm</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-sm-12">
-                        <div class="card pt-4 h-100 w-100">
-                            <img class="card-img-top w-75 m-auto" src="~/asset/conversation.png" alt="">
-                            <div class="card-body">
-                                <h5 class="card-title">Tư vấn cùng bác sĩ</h5>
-                                <a href="/Chat" class="btn btn-danger w-100">Bắt đầu ngay</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+
 <section class="about-meal">
     <div class="container">
         <h1 class="section-heading">The wonderful things of being pregnant</h1>
@@ -110,8 +76,8 @@
                     hay nụ cười của bố. Bạn sẽ cảm thấy hạnh phúc vô bờ bến khi biết rằng đứa
                     con sắp chào đời giống hình ảnh hồi nhỏ của vợ chồng bạn.
                 </p>
-                <button class="btn btn-secondary">Read More</button>
             </div>
+        
         </div>
         <h1 class="section-heading"></h1>
         <div class="about-meal-wrap flex">
@@ -124,7 +90,6 @@
                     lúc nào cũng mang bầu bởi lúc đó cô ấy đẹp, quyến rũ nhất.
 
                 </p>
-                <button class="btn btn-secondary">Read More</button>
             </div>
             <div class="flex-1">
                 <img src="./asset/anhbau7.jpg" alt="">
@@ -148,7 +113,7 @@
                     ngôn ngữ đó. Bạn có thể ngồi hàng giờ để nói chuyện, tâm sự với
                     con, nghe nhạc cùng con.
                 </p>
-                <button class="btn btn-secondary">Read More</button>
+               
             </div>
         </div>
     </div>
@@ -167,13 +132,13 @@
                 <img class="icon" src="./asset/icon2.svg" alt="">
                 <h2 class="text-primary">Prestigious maternity hospital</h2>
                 <p>Các bệnh viện uy tín và cơ sở hạ tầng chất lượng</p>
-                <a class="btn btn-primary" href="/Hospital">Read More</a>
+                <a class="btn btn-primary" href="/Hospital">Tìm hiểu</a>
             </div>
             <div class="service-card magic-shadow-sm">
-                <img class="icon" src="./asset/icon5.svg" alt="">
-                <h2>Monitor your baby's condition well</h2>
-                <p>Đảm bảo sức khỏe của thai nhi được theo dõi và chăm sóc tốt nhất</p>
-                <button class="btn btn-secondary" >Read More</button>
+                <img class="icon" src="~/asset/conversation.png" alt="">
+                <h2>Connect to Doctor</h2>
+                <p>Liên lạc với bác sĩ có năng lực là cách theo dõi tình trạng tốt nhất</p>
+                <a class="btn btn-primary" href="/Chat">Kết nối</a>
             </div>
         </div>
     </div>

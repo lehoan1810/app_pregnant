@@ -1,0 +1,63 @@
+.wrap {
+    background-color: rgba(250, 239, 224, 0.5);
+
+}
+.tinhtoan {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.doan {
+    color: #5434b9;
+    margin:0 20px;
+    
+    font-weight:700;
+    font-size:20px;
+}
+
+.tinhtoan p {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.dudoan {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+    .dudoan h1 {
+        font-weight: 600;
+        color: #585A6E;
+    }
+.input-text {
+    border-radius: 5px;
+    border: 1px solid #E0D7CA;
+    font-size:16px;
+    height: 40px;
+    padding-left: 10px;
+}
+.day-birth {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+   
+
+}
+.btn-abouts {
+    width: 150px;
+    height: 80%;
+    margin-left: 50px;
+    font-size: 15px;
+    border-radius: 8px;
+    border: solid 1px black;
+    cursor: pointer;
+    background-color: transparent;
+    margin-bottom: auto;
+    font-weight: 500;
+}

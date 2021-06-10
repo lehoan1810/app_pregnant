@@ -41,6 +41,8 @@ namespace Pred.Controllers
         {
             return View();
         }
+        public IActionResult Function()
+        { return View(); }
         public IActionResult food()
         {
             return View();

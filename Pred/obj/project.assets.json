@@ -9524,19 +9524,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\hoanh\\.nuget\\packages\\": {}
+    "C:\\Users\\chaos\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "T:\\app_pregnant\\Pred\\Pred.csproj",
+      "projectUniqueName": "E:\\CNPM\\AppbBaBau\\app_pregnant\\Pred\\Pred.csproj",
       "projectName": "Pred",
-      "projectPath": "T:\\app_pregnant\\Pred\\Pred.csproj",
-      "packagesPath": "C:\\Users\\hoanh\\.nuget\\packages\\",
-      "outputPath": "T:\\app_pregnant\\Pred\\obj\\",
+      "projectPath": "E:\\CNPM\\AppbBaBau\\app_pregnant\\Pred\\Pred.csproj",
+      "packagesPath": "C:\\Users\\chaos\\.nuget\\packages\\",
+      "outputPath": "E:\\CNPM\\AppbBaBau\\app_pregnant\\Pred\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\hoanh\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\chaos\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -9619,7 +9619,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
       }
     }
   }

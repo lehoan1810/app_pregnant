@@ -73,7 +73,7 @@
                                onchange="console.log(this.value)">
                     </div>
                     <div class="col-sm-4">
-                        <select asp-for="Input.Sex" id="genderInfo">
+                        <select asp-for="Input.Sex" id="genderInfo" onchange="func01()">
                             <option value="false">Nữ</option>
                             <option value="true">Nam</option>
                         </select>
@@ -85,9 +85,11 @@
                 <input class="form-control" asp-for="Input.PhoneNumber" placeholder="Số điện thoại" id="numberInfo" required>
                 <input class="form-control" asp-for="Input.Job" placeholder="Công việc" id="workInfo" required>
                 <input class="form-control" asp-for="Input.Address" placeholder="Địa chỉ" id="addressInfo" required>
-
-                <label class="control-label">Số tuần</label>
-                <input class="form-control" asp-for="Input.Week" id="week" required>
+                <div id="week">
+                    <label class="control-label">Số tuần</label>
+                    <input class="form-control" asp-for="Input.Week" id="week" required>
+                </div>
+               
             </div>
         </div>
     </form>
@@ -97,6 +99,19 @@
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
 }
+<script>
+    
+    function func01() {
+        var gender = document.getElementById('genderInfo').selectedIndex;
+        var week = document.getElementById('week');
+        if (gender === 1) {
+            week.style.display = "none";
+        } else {
+
+            week.style.display = "block";
+        }
+    }
+</script>
 <style>
     .form-control {
         margin: 3vh;

@@ -1,25 +1,31 @@
 ﻿@{
     ViewData["Title"] = "Thucdon";
 }
+<head>
+    <link href="~/css/Nutrition.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="wrap">
+        <div class="dudoan">
+            <h1>Thông tin dinh dưỡng theo số tuổi thai nhi</h1>
+        </div>
+        <div class="tinhtoan">
+            <p>Nhập số ngày thai:  <input class="input-text" type="text" id="test" value=0></p>
 
+            <button class="btn-abouts" href="#" ; onclick="aboutuspage();">Tính toán</button>
+            </br>
 
-<div class="dudoan">
-    <h1>Thông tin dinh dưỡng theo số tuổi thai nhi</h1>
-</div>
-<div class="tinhtoan">
-    <p>Nhập số ngày thai:  <input class="input-text" type="text" id="test" value=0></p>
+        </div>
+        <div class="day-birth">
+            Dự đoán số ngày thai nhi ra đời: <p class="doan"></p>
+        </div>
+        <div style="width:100%;height:100%" class="trangchu" id="aboutus"></div>
+    </div>
+  
 
-    <button class="btn-abouts" href="#" ; onclick="aboutuspage();">Tính toán</button>
-    </br>
-    <strong>
-        Dự đoán số ngày thai nhi ra đời: <p class="doan"></p>
-    </strong>
-</div>
-<div style="width:100%;height:100%" class="trangchu" id="aboutus"></div>
-
-<script>
+    <script>
     $(document).ready(function () {
-        
+
         $('.btn-abouts').click(function () {
             if ($("#test").val() <= 280 && $("#test").val() > 0) {
                 var time = 280 - $("#test").val();
@@ -29,7 +35,7 @@
                     $(".doan").empty();
                     $(".doan").append(month + " tháng" + " " + day + " ngày");
                     $('#aboutus').load('@Url.Action("thaidau","Home")');
-                    
+
 
                 } else if (time < 190 && time >= 100) {
                     $(".doan").empty();
@@ -48,4 +54,6 @@
         });
 
      });
-</script>
+    </script>
+</body>
+
