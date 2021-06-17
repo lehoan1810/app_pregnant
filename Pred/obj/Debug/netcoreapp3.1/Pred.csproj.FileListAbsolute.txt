@@ -4152,7 +4152,6 @@ E:\CNPM\AppbBaBau\app_pregnant\Pred\bin\Debug\netcoreapp3.1\runtimes\win-x86\nat
 E:\CNPM\AppbBaBau\app_pregnant\Pred\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
 E:\CNPM\AppbBaBau\app_pregnant\Pred\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 E:\CNPM\AppbBaBau\app_pregnant\Pred\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-E:\CNPM\AppbBaBau\app_pregnant\Pred\obj\Debug\netcoreapp3.1\Pred.csprojAssemblyReference.cache
 E:\CNPM\AppbBaBau\app_pregnant\Pred\obj\Debug\netcoreapp3.1\Pred.AssemblyInfoInputs.cache
 E:\CNPM\AppbBaBau\app_pregnant\Pred\obj\Debug\netcoreapp3.1\Pred.AssemblyInfo.cs
 E:\CNPM\AppbBaBau\app_pregnant\Pred\obj\Debug\netcoreapp3.1\Pred.csproj.CoreCompileInputs.cache
@@ -4214,3 +4213,4 @@ E:\CNPM\AppbBaBau\app_pregnant\Pred\obj\Debug\netcoreapp3.1\Pred.dll
 E:\CNPM\AppbBaBau\app_pregnant\Pred\obj\Debug\netcoreapp3.1\Pred.pdb
 E:\CNPM\AppbBaBau\app_pregnant\Pred\obj\Debug\netcoreapp3.1\Pred.genruntimeconfig.cache
 E:\CNPM\AppbBaBau\app_pregnant\Pred\obj\Debug\netcoreapp3.1\Razor\Views\Home\Function.cshtml.g.cs
+E:\CNPM\AppbBaBau\app_pregnant\Pred\obj\Debug\netcoreapp3.1\Pred.csproj.AssemblyReference.cache

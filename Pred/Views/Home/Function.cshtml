@@ -1,7 +1,15 @@
-﻿
+﻿@using Microsoft.AspNetCore.Identity
+@using Pred.Models
+@inject SignInManager<ApplicationUser> SignInManager
+
 @{
     ViewData["Title"] = "Chức năng";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var hasExternalLogins = (await SignInManager.GetExternalAuthenticationSchemesAsync()).Any();
+    var user = SignInManager.UserManager.FindByNameAsync(User.Identity.Name).Result;
+    var isAdmin = (await SignInManager.UserManager.IsInRoleAsync(user, "Admin"));
+    var isDoctor = (await SignInManager.UserManager.IsInRoleAsync(user, "Doctor"));
+
 }
 
 <head>
@@ -10,28 +18,56 @@
 <body>
     <div id="container">
         <div class="portfolio-container" id="card">
+            @if (!isDoctor && !isAdmin)
+            {
+                <div class="  portfolio-thumbnail  ">
+                    <a href="~/Home/Music" class="card" id="card">
+                        <img src="~/asset/6738.jpg" />
+                        <h4 class="func-title"><b>Âm nhạc</b></h4>
+                        <p class="func-des">
+                            Hãy thưởng thức môt ít âm nhạc để có thể thư giản,
+                            ngoài ra nó có thể giúp con bạn phát triên một phần nào đó
+                        </p>
 
-            <div class="  portfolio-thumbnail  ">
-                <a href="~/Home/Music" class="card" id="card">
-                    <img src="~/asset/6738.jpg" />
-                    <h4 class="func-title"><b>Âm nhạc</b></h4>
-                    <p class="func-des">
-                        Hãy thưởng thức môt ít âm nhạc để có thể thư giản,
-                        ngoài ra nó có thể giúp con bạn phát triên một phần nào đó
-                    </p>
+                    </a>
+                </div>
+                <div class="  portfolio-thumbnail  ">
+                    <a href="~/Home/food" class="card" id="card">
+                        <img src="~/asset/9118.jpg" />
+                        <h4 class="func-title"><b>Thực đơn</b></h4>
+                        <p class="func-des">
+                            Cùng nhau tìm hiểu một tí thực đơn dành cho sản phụ.
+                        </p>
 
-                </a>
-            </div>
-            <div class="  portfolio-thumbnail  ">
-                <a href="~/Home/food" class="card" id="card">
-                    <img src="~/asset/9118.jpg" />
-                    <h4 class="func-title"><b>Thực đơn</b></h4>
-                    <p class="func-des">
-                        Cùng nhau tìm hiểu một tí thực đơn dành cho sản phụ.
-                    </p>
+                    </a>
+                </div>
+                <div class="  portfolio-thumbnail  ">
+                    <a href="~/Hospital" class="card" id="card">
+                        <img src="~/asset/20944965.jpg" />
+                        <h4 class="func-title"><b>Xem bệnh viện</b></h4>
+                        <p class="func-des">
+                            Chúng tôi biết một vài bênh viện, liệu bạn có quan tâm?
+                        </p>
 
-                </a>
-            </div>
+                    </a>
+                </div>
+            }
+
+
+            @if (isAdmin)
+            {
+                <div class="  portfolio-thumbnail  ">
+                    <a href="/Admin/Manage/Index" class="card" id="card">
+                        <img src="~/asset/group.png" />
+                        <h4 class="func-title"><b>Quản lý</b></h4>
+                        <p class="func-des">
+                            
+                        </p>
+
+                    </a>
+                </div>
+            }
+
             <div class="  portfolio-thumbnail  ">
                 <a href="~/Identity/Note" class="card" id="card">
                     <img src="~/asset/5846.jpg" />
@@ -47,25 +83,16 @@
                     <img src="~/asset/56556.jpg" />
                     <h4 class="func-title"><b>Cập nhật thông tin</b></h4>
                     <p class="func-des">
-                       Hãy cập nhật thông tin chính xác, đó là cách chúng tôi hiểu vể bạn
+                        Hãy cập nhật thông tin chính xác, đó là cách chúng tôi hiểu vể bạn
                     </p>
 
                 </a>
             </div>
-            <div class="  portfolio-thumbnail  ">
-                <a href="~/Hospital" class="card" id="card">
-                    <img src="~/asset/20944965.jpg" />
-                    <h4 class="func-title"><b>Xem bệnh viện</b></h4>
-                    <p class="func-des">
-                        Chúng tôi biết một vài bênh viện, liệu bạn có quan tâm?
-                    </p>
 
-                </a>
-            </div>
             <div class="  portfolio-thumbnail  ">
                 <a href="~/Chat" class="card" id="card">
-                    <img src="~/asset/OGFB4B0.jpg" />
-                    <h4 class="func-title"><b>Liên lạc với bác sĩ</b></h4>
+                    <img src="~/asset/5625.jpg" />
+                    <h4 class="func-title"><b>Liên lạc</b></h4>
                     <p class="func-des">
                         Nếu có vấn đề gì đó hãy liên lạc với những bác sĩ, họ sẽ đưa ra lời khuyên cần thiết
                     </p>
@@ -77,13 +104,13 @@
                     <img src="~/asset/5833.jpg" />
                     <h4 class="func-title"><b>Cập nhật mật khẩu</b></h4>
                     <p class="func-des">
-                        Hãy cập nhật mật khẩu, nó sẽ giúp bạn cảm giác an toàn hơn. 
+                        Hãy cập nhật mật khẩu, nó sẽ giúp bạn cảm giác an toàn hơn.
                     </p>
 
                 </a>
             </div>
         </div>
     </div>
-   
+
 </body>
 
